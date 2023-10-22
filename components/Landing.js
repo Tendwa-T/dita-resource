@@ -6,7 +6,7 @@ export default function Landing() {
   return (
     <div
       id="landing"
-      className="flex justify-center h-[70vh] mx-10 mt-10 mb-16"
+      className="flex justify-center h-[70vh] mx-10 mt-20 mb-10 select-none"
     >
       <motion.div
         className="flex w-1/2"
