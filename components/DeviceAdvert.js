@@ -7,7 +7,7 @@ export default function DeviceAdvert() {
 
 
   return (
-    <motion.div className="flex-1 justify-center mx-10 mt-32 border-2 border-black py-4 select-none" initial={{opacity:0, y:20}} whileInView={{opacity:1, y:0, transition:{ease:'easeInOut', duration:0.5}}}>
+    <motion.div className="flex-1 justify-center mx-10 mt-32  py-4 select-none" initial={{opacity:0, y:20}} whileInView={{opacity:1, y:0, transition:{ease:'easeInOut', duration:0.5}}}>
       <div id="heading" className="flex-1 mx-auto justify-center" >
         <h1 className="font-roboto font-extrabold tracking-wide text-6xl text-center w-[50vw] mx-auto text-gray-600">
           Is your Device stressing you?
@@ -57,14 +57,11 @@ export default function DeviceAdvert() {
       </div>
       <div className="flex-1 my-3">
         <div className="flex justify-center ">
-          <h1 className="text-center text-gray-600 text-4xl font-bold">Click the buttons to view your respective page</h1>
+          <h1 className="text-center text-gray-600 text-4xl font-bold">Click for repairs</h1>
         </div>
         <div className="flex justify-evenly mt-4">
         <button className="bg-[#00B0FF] bg-opacity-50 w-40 h-10 rounded-xl" onClick={()=>router.push("/software")}>
-          Software Page
-        </button>
-        <button className="bg-[#00B0FF] bg-opacity-50 w-40 h-10 rounded-xl" onClick={()=>router.push("/hardware")}>
-          Hardware Page
+          Repairs
         </button>
         </div>
         

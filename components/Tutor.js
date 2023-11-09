@@ -7,7 +7,7 @@ export default function Tutor() {
   const router = useRouter();
   return (
     <motion.div
-      className="flex justify-center mx-10 mt-24 border-2 border-black py-4 px-4"
+      className="flex justify-center mx-10 mt-24  py-4 px-4"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{
         opacity: 1,

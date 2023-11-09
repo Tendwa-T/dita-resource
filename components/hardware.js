@@ -6,11 +6,11 @@ export default function Hardware() {
   const router = useRouter();
 
   return (
-    <div className="flex-1 justify-center mx-10 mb-16">
+    <div className="flex-1 justify-center border border-black p-4 mt-5 mb-16 -z-10 mx-10">
       <div id="hardware-page" className="flex w-full">
         <motion.div
           id="content"
-          className="w-full relative"
+          className="w-full relative -z-20"
           initial={{ y: 100, opacity: 0 }}
           animate={{
             opacity: 1,
@@ -19,25 +19,25 @@ export default function Hardware() {
           }}
         >
           <Image
-            src="/images/hardware3.png"
+            src="/images/hardware4.png"
             alt="Hardware"
             width={1920}
             height={1080}
             quality={100}
-            className="object-cover w-full h-[70vh] scale-50"
+            className="w-full object-cover -z-10 h-[70vh] scale-75"
           />
-          <div className="top-2/3 absolute w-full">
+          <motion.div className="top-[65vh] absolute w-full" initial={{y:200, opacity:0}} animate={{y:0, opacity:1, transition:{delay:0.5, duration: 0.5, ease:'easeInOut'}}}>
             <h1 className="font-roboto font-bold text-[#00B0FF] text-7xl text-center">
               Hardware
             </h1>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
       <motion.div className="w-full flex justify-center mt-16" initial={{x:-20, opacity:0}} animate={{x:0, opacity:1, transition:{delay:1, ease:'easeInOut', duration:0.5}}}>
         <h1 className="text-3xl font-bold">Let us know what problem you are facing</h1>
       </motion.div>
       <div className="flex w-full justify-center">
-      <form className="w-[50vw] my-10">
+      <form className="w-[50vw] my-10 p-4 border border-gray-400">
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between">
               <label htmlFor="name">Name</label>

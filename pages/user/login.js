@@ -28,9 +28,9 @@ export default function User_Login() {
       }),
     });
     const data = await response.json();
-    if (data.success == true) {
+    if (data.status == 'success') {
       //implement a toast 
-      toast.success(`Welcome ${data.fullName}. Please wait to be re-routed`, {
+      toast.success(`Welcome ${data.user.firstname}. Please wait to be re-routed`, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -109,7 +109,7 @@ export default function User_Login() {
               id="pass"
               type="password"
               name="password"
-              autoComplete="password"
+              autoComplete="password                                                                                                                                                                            "
               placeholder="Password"
               onBlur={handlePass}
             />

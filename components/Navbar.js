@@ -105,7 +105,7 @@ export default function Navbar() {
 
   if (currentPath === "/repairs") {
     return (
-      <nav id="nav-bar" className="flex max-w-screen px-9 py-4 bg-white z-50">
+      <nav id="nav-bar" className="flex max-w-screen px-9 py-4 bg-slate-500 z-50">
         <div className="flex w-1/3">
           <motion.a
             href="/"
@@ -301,7 +301,7 @@ export default function Navbar() {
 
           <h1 className="">
             <span className="text-[#00B0FF] font-semibold">~</span>
-            <span className="text-[#43a0f8] font-semibold text-xl">{user.fullName }~</span>
+            <span className="text-[#43a0f8] font-semibold text-xl">{user?.fullName }~</span>
           </h1>
         </div>
       </nav>
