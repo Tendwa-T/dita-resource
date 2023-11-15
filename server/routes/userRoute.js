@@ -1,7 +1,7 @@
 
 const express = require('express');
 const {
-    login, authenticate, logout, register
+    login, logout, register
 } = require('../auth/auth')
 const router = express.Router();
 

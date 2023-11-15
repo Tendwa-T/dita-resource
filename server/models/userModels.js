@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const db = require('../config/db')
+
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
     host: process.env.DB_HOST,
     dialect: 'mysql',
@@ -7,7 +8,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
 });
 
 
-const User = sequelize.define("users", {
+const User = sequelize.define("User", {
     email: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -35,20 +36,13 @@ const User = sequelize.define("users", {
         allowNull: false,
         defaultValue: false,
     }
-}, {
- findByID: async (student_No) => {
-    const userQuery =db.query('SELECT * FROM users WHERE student_No = ?', [student_No], async (error, results) => {
-        if (error) throw error;
-        return results;
-        
-    });
-    if (userQuery.length === 0) {
-        return null;
-    }
-    else {
-        return results[0];
-    }
- }
 });
+
+User.sync().then( async() => {
+    console.log('User table created');
+    await sequelize.sync({ alter: true });
+}   
+).catch(err => console.log(err));
+
 
 module.exports = User;

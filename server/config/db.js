@@ -7,7 +7,7 @@ const db = mysql.createConnection({
     database:'resource_center',
 });
 
-//create user table if it doesn't exist
+/* //create user table if it doesn't exist
 db.query(`CREATE TABLE IF NOT EXISTS users (
     student_No VARCHAR(255) PRIMARY KEY, 
     firstName VARCHAR(255), 
@@ -30,7 +30,7 @@ db.query(`CREATE TABLE IF NOT EXISTS repair_requests (
     )`, function (err, result) {
     if (err) throw err;
     console.log("Table created");
-});
+}); */
 
 
 module.exports = db;
