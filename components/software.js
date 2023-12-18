@@ -1,9 +1,25 @@
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 
 export default function Software() {
   const router = useRouter();
+  const [cookies] = useCookies(["token"], ["user"]);
+  const [userName, setUserName] = useState("");
+  const [student_No, setStudent_No] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (cookies.user) {
+      console.log(cookies.user);
+      /* setUserName(cookies.user.firstName + " " + cookies.user.lastName);
+      setStudent_No(cookies.user.student_No);
+      setEmail(cookies.user.email); */
+    }
+  }, [cookies])
 
   return (
     <div className="flex-1 justify-center border border-black p-4 mt-5 mb-16 -z-10 mx-10">
@@ -102,6 +118,7 @@ export default function Software() {
                 type="text"
                 id="name"
                 className="border border-gray-300 p-2 rounded w-[32vw]"
+                value={userName}
               />
             </div>
             <div className="flex justify-between">
@@ -126,6 +143,7 @@ export default function Software() {
                 type="email"
                 id="email"
                 className="border border-gray-300 p-2 rounded w-[32vw]"
+                value={email}
               />
             </div>
             <div className="flex justify-between">
@@ -133,6 +151,7 @@ export default function Software() {
               <textarea
                 id="message"
                 className="border border-gray-300 p-2 rounded w-[32vw]"
+                value={message}
               />
             </div>
             <div className="flex justify-evenly my-10">

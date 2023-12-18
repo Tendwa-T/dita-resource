@@ -23,7 +23,7 @@ export default function User_Signup() {
     handleStudent_No();
     handlePhone_No();
 
-    const response = await fetch("http://localhost:5000/api/users/register", {
+    const response = await fetch( "/api/user/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,22 +41,12 @@ export default function User_Signup() {
     const data = await response.json();
     console.log("User created", data);
 
-    if (data.success == true) {
-      const response = await fetch("http://localhost:5000/api/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
-      const logData = await response.json();
-      if (logData.success == true) {
-        console.log("Logged In", logData);
-      }
+    if (data.success = true) {
+      router.push("/user/login");
+    } else {
+      console.log("User not created");
     }
+
   };
 
   const handleFName = (e) => {
@@ -92,10 +82,10 @@ export default function User_Signup() {
   };
 
   return (
-    <div id="parent" className="w-full h-full flex justify-center">
-      <div id="login_logic" className="flex w-[40vw] justify-center">
+    <div id="parent" className="w-[100vw] h-full flex justify-center">
+      <div id="login_logic" className="flex w-full justify-center">
         <form
-          className="flex-col border border-gray-500 w-full p-8 justify-center space-y-6 rounded-xl"
+          className="flex-col border border-gray-500 w-[40vw] p-8 justify-center space-y-6 rounded-xl"
           onSubmit={handleSubmit}
         >
           <h1 className="text-4xl font-bold text-center">Signup</h1>
@@ -183,23 +173,6 @@ export default function User_Signup() {
                 Cancel
               </Link>
             </div>
-          </div>
-          <div id="loginWithGoogle" className="flex justify-center">
-            <button
-              className="flex w-full h-[50px] rounded-full border-slate-400 border-2 justify-center items-center hover:bg-[#00B0FF] hover:bg-opacity-20"
-              type="submit"
-              value="Login"
-            >
-              <Image
-                src="/images/googleLogin.png"
-                alt="Google-logo"
-                className="object-cover"
-                width={40}
-                height={40}
-                quality={100}
-              />
-              Continue with Google
-            </button>
           </div>
         </form>
       </div>
